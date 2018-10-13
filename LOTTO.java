@@ -1,4 +1,5 @@
 package SymulatorLOTTO;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ public class LOTTO {
         Scanner skan = new Scanner(System.in);
         Random los = new Random();
 
-        System.out.print("Podaj 6 liczb z zakresu 1 - 49, bo tylko takie moga wygraæ: ");
+        System.out.println("Podaj 6 liczb z zakresu 1 - 49, bo tylko takie moga wygrac: ");
 
         final int z = 49;
         int[] user = new int[6];
@@ -24,8 +25,14 @@ public class LOTTO {
 
         for (int j = 0; j < 6; j++) {
             user[j] = skan.nextInt();
-
+                for (int k = 0; k < j; k++){
+                    while (user[j] == user[k]){
+                        System.out.println("Liczba sie powtorzyla, musisz wybrac inna: ");
+                        user[k] = skan.nextInt();
+                    }
+                }
         }
+
         for (int i = 0; i < 6; i++) {
             int x = los.nextInt(50);
             for (int j = 0; j < 49 - 1; j++) {
