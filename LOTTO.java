@@ -26,16 +26,15 @@ public class LOTTO {
         for (int j = 0; j < 6; j++) {
             user[j] = skan.nextInt();
                 for (int k = 0; k < j; k++){
-                    while (user[j] == user[k]){
+                   while (user[j] == user[k]){
                         System.out.println("Liczba sie powtorzyla, musisz wybrac inna: ");
                         user[k] = skan.nextInt();
                     }
                 }
         }
-
         for (int i = 0; i < 6; i++) {
-            int x = los.nextInt(50);
-            for (int j = 0; j < 49 - 1; j++) {
+            int x = los.nextInt(49+1)+1;
+            for (int j = 0; j < 49; j++) {
                 if (x == i + 1 && x == 0) {
                     zakres[i] = -1;
                 }
