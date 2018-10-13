@@ -1,5 +1,6 @@
 package Zgadywanie_liczb;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,28 +13,29 @@ public class ZgadywanieLiczb {
         Random los = new Random();
         Scanner skan = new Scanner(System.in);
 
-        int liczba = los.nextInt(5)+1;
-        String cos = "";
+        int liczba = los.nextInt(100) + 1;
 
         System.out.println("Zgadnij liczbę z zakresu 1 do 100: ");
 
-        cos = skan.nextLine();
+        try{
 
-        while (isDigit(Integer.parseInt(cos))){
-            System.out.print("To nie jest liczba, powtórz wybór: ");
-            cos = skan.nextLine();
+        int twoja = skan.nextInt();
+
+        while (twoja != liczba) {
+            if (twoja < liczba) {
+                System.out.println("Za mala powtórz: ");
+                twoja = skan.nextInt();
+
+            } else if (twoja > liczba) {
+                System.out.println("Za duza powtórz: ");
+                twoja = skan.nextInt();
+            }
         }
-        int twoja = Integer.parseInt(cos);
-
-        while (twoja != liczba){
-            System.out.println("przeglales, powtórz: ");
-            cos = skan.nextLine();
-            twoja = Integer.parseInt(cos);
-         }
+        }catch (InputMismatchException e) {
+            System.err.println("To nie liczba!!! " + e);
+        }System.out.println("Zgadles");
+        skan.close();
     }
-}
-
-
 
 //POWRÓT  && Integer.parseInt(cos) <=100 && Integer.parseInt(cos) >= 1
 //Podstawy programowania w Javie
