@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Zgadywanieliczb2 {
+
     public static void main(String[] args) {
 
         Scanner skan = new Scanner(System.in);
@@ -28,7 +29,7 @@ public class Zgadywanieliczb2 {
 
         decyzja = skan.nextLine();
 
-        for (int i = 0; i < n + 5; i++) {
+        while(decyzja != "T" && decyzja != "t") {
 
             if (decyzja.equals("W") || decyzja.equals("w")) {
 
@@ -38,18 +39,16 @@ public class Zgadywanieliczb2 {
 
                 zakres = num;
 
-            } else if (decyzja.equals("T") || decyzja.equals("t")){ continue;}
+            } else if (decyzja.equals("T") || decyzja.equals("t")){System.out.print("Twoja liczna to: " + num); break;}
 
             num = los .nextInt(zakres - grDol + 1)+ grDol;
 
             System.out.print("Czy to liczba: " + num + " ");
 
             decyzja = skan.nextLine();
-        }
 
-        System.out.print("Twoja liczna to: " + num);
+        }
         skan.close();
     }
-
 }
 
