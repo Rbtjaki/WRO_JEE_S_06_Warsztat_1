@@ -18,7 +18,7 @@ public class LOTTO {
         int[] zakres = new int[z];
         int num = 0;
         int n = 0;
-        int[] nowa = new int[6];
+
         int licznik = 0;
 
         for (int i = 0; i < z; i++) {
@@ -43,7 +43,7 @@ public class LOTTO {
             }
         }
         int bufor = user[0];
-
+        int[] nowa = new int[user.length];
         for (int i = 0; i < user.length; i++){
             bufor = user[0];
             for (int j = 0; j < user.length; j++){
@@ -68,7 +68,7 @@ public class LOTTO {
         int check = 0;
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
-                if (user[i] == lotto[j]) {
+                if (nowa[i] == lotto[j]) {
                     check++;
                 }
             }
@@ -86,4 +86,5 @@ public class LOTTO {
         }
         skan.close();
     }
+}
 }
